@@ -1,9 +1,9 @@
 # ================================================================
 # CMP 131 - AI ESCAPE ROOM CHALLENGE
 # ================================================================
-# Team members:
-# Date:
-#
+# Team members: Ayden S, Mikhial  A, Matthew C, Angelina D 
+# Date: 10/16/2026
+# Group project
 # STORY:
 # C.O.D.E., the classroom AI, accidentally locked the virtual lab.
 # Complete the three levels to help the player escape.
@@ -28,30 +28,25 @@ print("Complete three levels to escape!")
 
 # ------------------- LEVEL 1: ACCESS CODE ------------------------
 
-# TODO 2:
 print("\nLEVEL 1: ACCESS CODE")
 print("Enter the correct code to unlock the door.")
 
-# TODO 3:
 # These starting variables are provided.
 correct_code = 131
 door_status = "locked"
 attempts = 0
 
-# TODO 4:
-# Create a while loop that repeats while the door is "locked".
-# Inside the loop:
-#   1. Ask the player to enter an access code.
-#   2. Convert the player's answer to an integer.
-#   3. Add 1 to the attempt count.
-#   4. Use if/else to check the answer.
-#   5. If the code is 131, change the door status to "unlocked".
-#   6. Otherwise, display a friendly message and allow another attempt.
-
-# TODO 5:
-# After the loop ends, display that the door is unlocked.
-# Display the number of attempts the player used.
-
+# Continue to asked for the correct code until the door is unlocked. 
+while door_status == "locked":
+    code = int(input("Enter the access code: "))
+    attempts += 1
+    if code == correct_code:
+        door_status = "unlocked"
+    else:
+        print("Incorrect code. Please try again.")
+     # Display result after the loop ends 
+    print("The door is unlocked!")
+    print("You used", attempts, "attempts to unlock the door.")
 
 # ---------------- LEVEL 2: COOLING SYSTEM ------------------------
 
@@ -64,6 +59,16 @@ temperature = int(input("Enter the system temperature: "))
 
 # TODO 7:
 # Create a while loop that repeats when the temperature is unsafe.
+while(temperature<50 or temperature>99):
+    print("Too cold or overheating, Enter a new temperature ")
+if(temperature<50):
+    print("Too cold")
+elif(temperature>99):
+    print("OVERHEATING")
+else:
+    print("Safe to move on.")
+temperature = int(input("Enter the system temperature: "))
+
 # A temperature is unsafe when it is below 50 OR 100 or higher.
 # Inside the loop:
 #   1. If the temperature is below 50, display "Too cold."
@@ -76,19 +81,27 @@ temperature = int(input("Enter the system temperature: "))
 
 # --------------- LEVEL 3: SECURITY DECISION ---------------------
 
-# TODO 9:
+#
 print("\nLEVEL 3: SECURITY DECISION")
 print("Choose: scan, shutdown, or share")
 
 # The first security choice is provided.
 choice = input("Enter your choice: ").lower()
 
+while choice not in("scan", "shutdown", "share"):
+    print("Oops! That is not a valid choice. Please Try Again.")
+    choice = input("Enter scan, shutdown, or share: ").lower()
 # TODO 10:
 # Create a while loop that repeats when the choice is not valid.
 # Inside the loop:
 #   1. Display a friendly invalid-choice message.
 #   2. Ask the player to enter scan, shutdown, or share again.
-
+if choice == "scan":
+    print("Starting a deep system scan for security threats. . .")
+elif choice == "shutdown":
+    print("Initiating emergency shutdown. Disconnecting. . .")
+elif choice == "share":
+    print("Preparing to share data. . . REMINDER: Never Share Your Passwords or Private Information with AI!")
 # TODO 11:
 # After the loop ends, use if/elif/else to display a different
 # message for scan, shutdown, and share.
@@ -104,3 +117,5 @@ print("\nCongratulations,", player_name + "!")
 print("You escaped from C.O.D.E.'s virtual laboratory!")
 
 # Add one friendly or funny final message written by your team.
+
+print("You did it! now you gotta pay us for playing this game. jk, but seriously, you should pay us. ")
